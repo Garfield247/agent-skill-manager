@@ -1,0 +1,26 @@
+# agent-skill-manager
+
+> 🧭 AI Agent 技能全生命周期管理、规范脚手架创建、脱敏审查与跨环境同步发布 Agent Skill。
+
+## 🌟 核心特性 (Features)
+
+- **标准化脚手架生成**：全自动生成符合工业标准的 `SKILL.md`（YAML frontmatter、核心铁律、分层架构规范、调试武器库与 Checklist）。
+- **严格合规性审查**：强制脱敏审查、敏感字样检测、Mermaid 4 大防崩语法格式校验。
+- **全自动建仓与发布**：GitHub API 自动化建仓、Description 与 Topics 标签自动维护、Conventional Commits 提交。
+- **中央索引库双向联动**：自动同步登记至 `agent-skills` 注册表与全局 `GEMINI.md` 路由索引。
+
+## 📦 安装与加载 (Installation)
+
+### 方式 1: 安装至 Antigravity / Gemini 全局技能库
+```bash
+git clone git@github.com:Garfield247/agent-skill-manager.git ~/.gemini/config/skills/skill-manager
+```
+
+### 方式 2: 在任意项目中作为本地工作区技能引入
+```bash
+mkdir -p .agents/skills
+git clone git@github.com:Garfield247/agent-skill-manager.git .agents/skills/skill-manager
+```
+
+## 📄 开源协议 (License)
+本项目采用 [MIT License](LICENSE) 授权。
