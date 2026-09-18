@@ -112,3 +112,28 @@ git push -u origin main
   ```bash
   ls -la ~/.gemini/config/skills
   ```
+
+---
+
+# 5. 跨平台多 Agent 适配器与自动化导出 (Multi-Agent Adapters)
+
+为保障同一套规范在 Gemini、Claude、Cursor 等生态中原生发挥最大效能，本技能提供格式转换适配标准：
+
+### 5.1 Cursor MDC 现代规则规范导出标准
+将 `SKILL.md` 转换为 Cursor `.cursor/rules/<name>.mdc` 时，自动注入以下格式头：
+```markdown
+---
+description: [提取自 SKILL.md 的核心职责描述]
+globs: [依据技术栈注入, 如 "**/*.go" 或 "**/*.py"]
+alwaysApply: false
+---
+```
+
+### 5.2 Claude Code 原生引用集成标准
+自动在项目根目录 `CLAUDE.md` 中按需注入轻量级指针：
+```markdown
+## Engineering Standards
+- System Design: See `~/.claude/skills/technical-design/SKILL.md`
+- Debugging SOP: See `~/.claude/skills/systematic-debugging/SKILL.md`
+- Coding Guidelines: See `~/.claude/skills/go-zero-development/SKILL.md`
+```
