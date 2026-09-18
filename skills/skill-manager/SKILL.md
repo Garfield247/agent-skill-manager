@@ -18,8 +18,8 @@ description: >-
 ### 🚨 铁律一：坚决杜绝闭门造车，必须前置对标主流与黑马实践 (Mandatory Open Benchmarking)
 - 无论在**封装新技能（New Skill Scaffolding）**还是**优化重构已有技能（Skill Optimization）**时，**绝对禁止仅凭主观臆断直接闭门手写**；
 - **强制执行机制**：
-  1. 必须主动检索并扫描外部主流开源社区（如 GitHub `awesome-cursorrules`、`awesome-cursor-skills`、`claude-skills`、Devin / SWE-bench 顶级团队规范）；
-  2. 深入挖掘“黑马实践”与前沿趋势（如新兴防护机制、防御性代码模板、极简负向约束）；
+  1. 必须主动检索并扫描外部主流开源社区与顶尖黑马实践（如 `obra/superpowers` 的资深工程师纪律哲学、GitHub `awesome-cursorrules`、`awesome-cursor-skills`、`claude-skills`、Devin / SWE-bench 顶级团队规范）；
+  2. 深入挖掘“黑马实践”与前沿趋势（如新兴防护机制、防御性代码模板、可验证微任务拆解、极简负向约束）；
   3. 必须先向用户提交简要的**《生态对标与吸收报告》**，明确吸收了哪些标杆闪光点并剔除了哪些陈旧糟粕，待用户确认后再行落地。
 
 ### 🚨 铁律二：统一生态前缀与命名约束
@@ -58,55 +58,35 @@ agent-skill-<name>/
 2. **核心原则与绝对红线**：第一章节必须明确规定不可违反的工程铁律；
 3. **架构与分层规范**：提供正反代码示例对比（❌ 错误反例 vs ✅ 推荐正例）；
 4. **专属排障武器库 (Troubleshooting & Debugging Guide)**：提供该领域的典型死法与诊断命令；
-5. **Checklist**：提供给合并代码前快速核对的清单。
+5. **现代版本自适应决策表 (Adaptive Versioning Matrix)**：优先以现代版本为演进基调，但在存量项目中先探测当前环境版本并智能降级。
 
 ---
 
-# 3. 技能创建与优化演进全生命周期流水线 (SOP)
-
-当用户提出“帮我新增一个 xxx 领域的 skill”或“优化重构 xxx skill”时，严格执行以下 6 步闭环流水线：
+# 3. 技能全生命周期流转 SOP (5 步闭环)
 
 ```mermaid
 flowchart TD
-    A["阶段 0: 生态对标与黑马调研<br/>(Benchmarking & Horizon Scanning)"] --> B["阶段 1: 需求分析与结构规划<br/>(向用户提交吸收报告)"]
-    B --> C["阶段 2: 编写标准脚手架与规范文件<br/>(SKILL / README / LICENSE)"]
-    C --> D["阶段 3: 合规与防崩语法自动化审查<br/>(脱敏 / 敏感词 / Mermaid)"]
-    D --> E["阶段 4: GitHub 自动建仓与 Git 推送<br/>(API 建仓 / Conventional Commits)"]
-    E --> F["阶段 5: 注册至中央索引库与本地落地<br/>(agent-skills / GEMINI.md)"]
+    A["1. 需求与黑马调研<br/>(Benchmarking & Absorbing)"] --> B["2. 编撰标准规范<br/>(Drafting SKILL.md)"]
+    B --> C["3. 脱敏与合规审查<br/>(Desensitization & Lint)"]
+    C --> D["4. 自动建仓与 Git 初始化<br/>(agent-skill-*)"]
+    D --> E["5. 注册中央索引库与本地生效<br/>(agent-skills Hub & Local)"]
 ```
 
----
+### 阶段 1：需求与黑马调研 (Mandatory Benchmarking)
+- 扫描同类主流 Skill 及标杆项目（如 `obra/superpowers` 的需求收敛与微任务验证命令）；
+- 梳理出：痛点场景、反常识避坑指南、防御性设计、验证门禁；
+- 形成对比报告向用户确认。
 
-### 阶段 0：生态对标与黑马调研（拒绝闭门造车 - 强制步骤）
-在动笔前，必须通过 Web 搜索或技术库检索完成调研：
-1. **调研广度**：
-   - 检索 GitHub 上该技术栈最火的 `cursorrules`（如 `awesome-cursorrules`）；
-   - 检索顶尖 Agent 技能库（如 `awesome-cursor-skills`、`claude-skills`）；
-   - 检索明星开源框架官方对于代码生成的推荐规范与安全红线。
-2. **提炼分析三要素**：
-   - **标杆经验**：优秀技能在防范哪些隐蔽的生产 Bug？
-   - **黑马亮点**：有没有新兴的高效模式、新版本语言特性支持、更清晰的 Prompt 约束？
-   - **去伪存真**：摒弃无意义的空泛说教，提炼出可执行的工程红线。
-3. **向用户汇报《对标与吸收报告》**：
-   ```markdown
-   ### 💡 外部生态对标与吸收报告
-   - **对标标杆/黑马**：[列出参考的热门开源规约]
-   - **计划吸纳的亮点**：[明确列出 2-3 个准备吸收的高阶模式]
-   - **剔除的冗余**：[说明放弃哪些空泛内容]
-   ```
+### 阶段 2：编写规范文档
+- 遵循标准化脚手架生成 `SKILL.md`；
+- 编写清晰的架构时序图（Mermaid）与正反代码对比；
+- 制定专属排障指令与可验证验收标准。
 
-### 阶段 1：需求分析与结构规划
-梳理该技能的核心原则、分层边界、技术选型矩阵、专属调试武器库与典型踩坑点。
+### 阶段 3：脱敏与合规审查
+- 运行脱敏审查检查敏感词；
+- 校验文件路径与代码注释。
 
-### 阶段 2：生成脚手架文件
-基于标准骨架生成 `SKILL.md`、`skills/<name>/SKILL.md`、`README.md`（含多 Agent 安装指引）与 `LICENSE`。
-
-### 阶段 3：合规与语法自动化审查
-- 敏感词审查：严禁出现特定真机代号；
-- 业务数据脱敏审查；
-- 校验 Mermaid 语法 AST 兼容性。
-
-### 阶段 4：GitHub 自动建仓与版本推送
+### 阶段 4：自动化创建 GitHub 仓库与初始推送
 通过 GitHub REST API 自动创建公共仓库：
 ```python
 # API: POST https://api.github.com/user/repos
@@ -175,7 +155,7 @@ alwaysApply: false
 
 # 6. 技能创建与优化 Checklist
 
-- [ ] 是否在前置阶段调研了外部主流热门及黑马 Skill 的前沿打法？
+- [ ] 是否在前置阶段调研了外部主流热门及黑马 Skill 的前沿打法（如 `superpowers` 的纪律化工程）？
 - [ ] 是否已向用户汇报了《对标与吸收报告》？
 - [ ] 仓库名称是否以 `agent-skill-` 开头？
 - [ ] 是否已进行全面的脱敏和敏感词筛查？
